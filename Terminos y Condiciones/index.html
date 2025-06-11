@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - Moto Morini</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .privacy-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            background-image: url('background.webp'); /* Asegúrate que la ruta a tu imagen sea correcta */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .privacy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,1) 100%);
+        }
+        
+        .privacy-hero h1 {
+            position: relative;
+            font-family: 'Oswald', sans-serif;
+            font-size: 120px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-left: 80px;
+            z-index: 1;
+        }
+        
+        /* Content Container */
+        .privacy-container {
+            background-color: #000;
+            padding: 0 0 80px 0;
+            margin-top: -2px;
+            position: relative;
+        }
+        
+        /* Content Section */
+        .privacy-section {
+            position: relative;
+            padding: 80px 20px 80px 20px;
+            text-align: center;
+        }
+
+        /* [MEJORA] Divisores manejados con CSS para un HTML más limpio */
+        .privacy-section:not(:last-of-type)::after {
+            content: '';
+            display: block;
+            width: 60%;
+            max-width: 800px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.15);
+            margin: 80px auto 0;
+        }
+        
+        /* Section with dark background */
+        .privacy-section.dark-bg {
+            background-color: #0c0c0c;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 80px 20px;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+        
+        /* Content Wrapper */
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: left;
+        }
+        
+        /* Paragraph Text */
+        .privacy-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            text-align: justify;
+            font-weight: 400;
+            margin-bottom: 25px;
+        }
+
+        .privacy-text strong {
+            color: #fff;
+            font-weight: 500;
+        }
+        
+        /* List Items */
+        .privacy-list {
+            list-style: none;
+            margin-bottom: 25px;
+            padding-left: 10px;
+        }
+        
+        .privacy-list li {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+            text-align: justify;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .privacy-list li::before {
+            content: '•';
+            color: #c8192e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .privacy-hero h1 {
+                font-size: 80px;
+                margin-left: 60px;
+            }
+            .section-title {
+                font-size: 36px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .privacy-hero h1 {
+                font-size: 60px;
+                margin-left: 30px;
+                text-align: center;
+            }
+            .privacy-hero {
+                height: 50vh;
+                min-height: 350px;
+                justify-content: center;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .content-wrapper {
+                padding: 0 20px;
+            }
+            .privacy-section {
+                padding: 60px 10px;
+            }
+            .privacy-section:not(:last-of-type)::after {
+                width: 80%;
+                margin-top: 60px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .privacy-hero h1 {
+                font-size: 42px;
+                margin-left: 0;
+            }
+            .section-title {
+                font-size: 24px;
+                line-height: 1.3;
+            }
+            .privacy-text,
+            .privacy-list li {
+                font-size: 12px;
+                line-height: 1.7;
+            }
+            .content-wrapper {
+                padding: 0 15px;
+            }
+            .privacy-section {
+                padding: 40px 5px;
+            }
+             .privacy-section:not(:last-of-type)::after {
+                width: 90%;
+                margin-top: 40px;
+                height: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="privacy-hero">
+        <h1>Términos y Condiciones</h1>
+    </section>
+    
+    <div class="privacy-container">
+
+        <section class="privacy-section">
+            <div class="content-wrapper">
+                <p class="privacy-text">
+                    <strong>¡Bienvenido a Moto Morini México!</strong>
+                </p>
+                <p class="privacy-text">
+                    Estos términos y condiciones describen las reglas y regulaciones para el uso del sitio web de KAWASAKI DE MÉXICO S.A. DE C.V., ubicado en https://motomorini.com.mx/.
+                </p>
+                <p class="privacy-text">
+                    Al acceder a este sitio web, asumimos que aceptas estos términos y condiciones. No continúes usando Moto Morini México si no estás de acuerdo con todos los términos y condiciones establecidos en esta página.
+                </p>
+            </div>
+        </section>
+        
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">Cookies</h2>
+                <p class="privacy-text">
+                    El sitio web utiliza cookies para ayudar a personalizar tu experiencia en línea. Al acceder a Moto Morini México, aceptaste utilizar las cookies necesarias.
+                </p>
+                <p class="privacy-text">
+                    Una cookie es un archivo de texto que un servidor de páginas web coloca en tu disco duro. Las cookies no se pueden utilizar para ejecutar programas o enviar virus a tu computadora. Las cookies se te asignan de forma exclusiva y solo un servidor web en el dominio que emitió la cookie puede leerlas.
+                </p>
+                <p class="privacy-text">
+                    Podemos utilizar cookies para recopilar, almacenar y rastrear información con fines estadísticos o de marketing para operar nuestro sitio web. Tienes la capacidad de aceptar o rechazar cookies opcionales. Hay algunas cookies obligatorias que son necesarias para el funcionamiento de nuestro sitio web. Estas cookies no requieren tu consentimiento ya que siempre funcionan. Ten en cuenta que al aceptar las cookies requeridas, también aceptas las cookies de terceros, que podrían usarse a través de servicios proporcionados por terceros si utilizas dichos servicios en nuestro sitio web, por ejemplo, una ventana de visualización de video proporcionada por terceros e integrada en nuestro sitio web.
+                </p>
+            </div>
+        </section>
+
+        <section class="privacy-section">
+            <div class="content-wrapper">
+                <h2 class="section-title">Licencia</h2>
+                <p class="privacy-text">
+                    A menos que se indique lo contrario, KAWASAKI DE MÉXICO S.A. DE C.V. y/o sus licenciantes poseen los derechos de propiedad intelectual de todo el material en Moto Morini México. Todos los derechos de propiedad intelectual son reservados. Puedes acceder desde Moto Morini México para tu uso personal sujeto a las restricciones establecidas en estos términos y condiciones.
+                </p>
+                <p class="privacy-text"><strong>No debes:</strong></p>
+                <ul class="privacy-list">
+                    <li>Copiar o volver a publicar material de Moto Morini México</li>
+                    <li>Vender, alquilar o sublicenciar material de Moto Morini México</li>
+                    <li>Reproducir, duplicar o copiar material de Moto Morini México</li>
+                    <li>Redistribuir contenido de Moto Morini México</li>
+                </ul>
+                <p class="privacy-text">Este acuerdo comenzará el <span id="current-date">fecha presente</span>.</p>
+                <p class="privacy-text">
+                    Partes de este sitio web ofrecen a los usuarios la oportunidad de publicar e intercambiar opiniones e información en determinadas áreas. KAWASAKI DE MÉXICO S.A. DE C.V. no filtra, edita, publica ni revisa los comentarios antes de su presencia en el sitio web. Los comentarios no reflejan los puntos de vista ni las opiniones de KAWASAKI DE MÉXICO S.A. DE C.V., sus agentes y/o afiliados. Los comentarios reflejan los puntos de vista y opiniones de la persona que publica. En la medida en que lo permitan las leyes aplicables, KAWASAKI DE MÉXICO S.A. DE C.V. no será responsable de los comentarios ni de ninguna responsabilidad, daños o gastos causados o sufridos como resultado de cualquier uso o publicación o apariencia de comentarios en este sitio web.
+                </p>
+                <p class="privacy-text">
+                    KAWASAKI DE MÉXICO S.A. DE C.V. se reserva el derecho de monitorear todos los comentarios y eliminar los que puedan considerarse inapropiados, ofensivos o que incumplan estos Términos y Condiciones.
+                </p>
+                <p class="privacy-text"><strong>Garantizas y declaras que:</strong></p>
+                <ul class="privacy-list">
+                    <li>Tienes derecho a publicar comentarios en nuestro sitio web y tienes todas las licencias y consentimientos necesarios para hacerlo;</li>
+                    <li>Los comentarios no invaden ningún derecho de propiedad intelectual, incluidos, entre otros, los derechos de autor, patentes o marcas comerciales de terceros;</li>
+                    <li>Los comentarios no contienen ningún material difamatorio, calumnioso, ofensivo, indecente o ilegal de otro modo, que sea una invasión de la privacidad.</li>
+                    <li>Los comentarios no se utilizarán para solicitar o promover negocios o actividades comerciales personalizadas o presentes o actividades ilegales.</li>
+                </ul>
+                <p class="privacy-text">
+                    Por la presente, otorgas a KAWASAKI DE MÉXICO S.A. DE C.V. una licencia no exclusiva para usar, reproducir, editar y autorizar a otros a usar, reproducir y editar cualquiera de tus comentarios en todas y cada una de las formas, formatos, o medios.
+                </p>
+            </div>
+        </section>
+
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">Hipervínculos a nuestro contenido</h2>
+                <p class="privacy-text">Las siguientes organizaciones pueden vincularse a nuestro sitio web sin aprobación previa por escrito:</p>
+                <ul class="privacy-list">
+                    <li>Agencias gubernamentales;</li>
+                    <li>Motores de búsqueda;</li>
+                    <li>Organizaciones de noticias;</li>
+                    <li>Los distribuidores de directorios en línea pueden vincularse a nuestro sitio web de la misma manera que hacen hipervínculos a los sitios web de otras empresas que figuran en la lista; y</li>
+                    <li>Empresas acreditadas en todo el sistema, excepto que soliciten organizaciones sin fines de lucro, centros comerciales de caridad y grupos de recaudación de fondos de caridad que no pueden hacer hipervínculos a nuestro sitio web.</li>
+                </ul>
+                <p class="privacy-text">
+                    Estas organizaciones pueden enlazar a nuestra página de inicio, a publicaciones o a otra información del sitio siempre que el enlace: (a) no sea engañoso de ninguna manera; (b) no implique falsamente patrocinio, respaldo o aprobación de la parte vinculante y sus productos y/o servicios; y (c) encaja en el contexto del sitio de la parte vinculante.
+                </p>
+                <p class="privacy-text">Podemos considerar y aprobar otras solicitudes de enlaces de los siguientes tipos de organizaciones:</p>
+                <ul class="privacy-list">
+                    <li>fuentes de información de consumidores y/o empresas comúnmente conocidas;</li>
+                    <li>sitios de la comunidad .com;</li>
+                    <li>asociaciones u otros grupos que representan organizaciones benéficas;</li>
+                    <li>distribuidores de directorios en línea;</li>
+                    <li>portales de Internet;</li>
+                    <li>firmas de contabilidad, derecho y consultoría; y</li>
+                    <li>instituciones educativas y asociaciones comerciales.</li>
+                </ul>
+                <p class="privacy-text">
+                    Aprobaremos las solicitudes de enlace de estas organizaciones si: (a) el enlace no nos haría vernos desfavorablemente a nosotros mismos ni a nuestras empresas acreditadas; (b) la organización no tiene registros negativos con nosotros; (c) el beneficio para nosotros de la visibilidad del hipervínculo compensa la ausencia de KAWASAKI DE MÉXICO S.A. DE C.V.; y (d) el enlace está en el contexto de información general de recursos.
+                </p>
+                <p class="privacy-text">
+                    Estas organizaciones pueden enlazar a nuestra página de inicio siempre que el enlace: (a) no sea engañoso de ninguna manera; (b) no implique falsamente patrocinio, respaldo o aprobación de la parte vinculante y sus productos o servicios; y (c) encaja en el contexto del sitio de la parte vinculante.
+                </p>
+                <p class="privacy-text">
+                    Si eres una de las organizaciones enumeradas en el párrafo 2 y estás interesada en vincularte a nuestro sitio web, debes informarnos enviando un correo electrónico a KAWASAKI DE MÉXICO S.A. DE C.V.. Incluye tu nombre, el nombre de tu organización, la información de contacto, así como la URL de tu sitio, una lista de las URL desde las que tienes la intención de vincular a nuestro sitio web y una lista de las URL de nuestro sitio a las que te gustaría acceder. Espera 2-3 semanas para recibir una respuesta.
+                </p>
+                <p class="privacy-text">Las organizaciones aprobadas pueden hacer hipervínculos a nuestro sitio web de la siguiente manera:</p>
+                 <ul class="privacy-list">
+                    <li>Mediante el uso de nuestro nombre corporativo; o</li>
+                    <li>Mediante el uso del localizador uniforme de recursos al que se está vinculando; o</li>
+                    <li>Usar cualquier otra descripción de nuestro sitio web al que está vinculado que tenga sentido dentro del contexto y formato del contenido en el sitio de la parte vinculante.</li>
+                </ul>
+                <p class="privacy-text">
+                    No se permitirá el uso del logotipo de KAWASAKI DE MÉXICO S.A. DE C.V. u otro material gráfico para vincular sin un acuerdo de licencia de marca comercial.
+                </p>
+            </div>
+        </section>
+
+        <section class="privacy-section">
+             <div class="content-wrapper">
+                <h2 class="section-title">Responsabilidad del contenido</h2>
+                <p class="privacy-text">
+                    No seremos responsables de ningún contenido que aparezca en tu sitio web. Aceptas protegernos y defendernos contra todas las reclamaciones que se presenten en tu sitio web. Ningún enlace(s) debe aparecer en ningún sitio web que pueda interpretarse como difamatorio, obsceno o criminal, o que infrinja, de otra manera viole o defienda la infracción u otra violación de los derechos de terceros.
+                </p>
+            </div>
+        </section>
+
+        <section class="privacy-section dark-bg">
+             <div class="content-wrapper">
+                <h2 class="section-title">Reserva de derechos</h2>
+                <p class="privacy-text">
+                    Nos reservamos el derecho de solicitar que elimines todos los enlaces o cualquier enlace en particular a nuestro sitio web. Apruebas eliminar de inmediato todos los enlaces a nuestro sitio web cuando se solicite. También nos reservamos el derecho de modificar estos términos y condiciones y su política de enlaces en cualquier momento. Al vincular continuamente a nuestro sitio web, aceptas estar vinculado y seguir estos términos y condiciones de vinculación.
+                </p>
+            </div>
+        </section>
+
+        <section class="privacy-section">
+             <div class="content-wrapper">
+                <h2 class="section-title">Eliminación de enlaces de nuestro sitio web</h2>
+                <p class="privacy-text">
+                    Si encuentras algún enlace en nuestro sitio que sea ofensivo por cualquier motivo, puedes contactarnos e informarnos en cualquier momento. Consideraremos las solicitudes para eliminar enlaces, pero no estamos obligados a hacerlo ni a responder directamente.
+                </p>
+                <p class="privacy-text">
+                    No nos aseguramos de que la información de este sitio web sea correcta. No garantizamos su integridad o precisión, ni prometemos asegurarnos de que el sitio web permanezca disponible o que el material en el sitio se mantenga actualizado.
+                </p>
+            </div>
+        </section>
+
+        <section class="privacy-section dark-bg">
+             <div class="content-wrapper">
+                <h2 class="section-title">Exención de responsabilidad</h2>
+                <p class="privacy-text">
+                    En la medida máxima permitida por la ley aplicable, excluimos todas las representaciones, garantías y condiciones relacionadas con nuestro sitio web y el uso de este. Nada en este descargo de responsabilidad:
+                </p>
+                <ul class="privacy-list">
+                    <li>limitará o excluirá nuestra responsabilidad o la tuya por muerte o lesiones personales;</li>
+                    <li>limitará o excluirá nuestra responsabilidad o la tuya por fraude o tergiversación fraudulenta;</li>
+                    <li>limitará cualquiera de nuestras responsabilidades o las tuyas de cualquier manera que no esté permitida por la ley aplicable; o</li>
+                    <li>excluirá cualquiera de nuestras responsabilidades o las tuyas que no puedan estar excluidas según la ley aplicable.</li>
+                </ul>
+                <p class="privacy-text">
+                    Las limitaciones y prohibiciones de responsabilidad establecidas en esta sección y en otras partes de este descargo de responsabilidad: (a) están sujetas al párrafo anterior; y (b) regirá todas las responsabilidades que surjan en virtud de la exención de responsabilidad, incluidas las responsabilidades que surjan en el contrato, en agravio y por incumplimiento de la obligación legal.
+                </p>
+                <p class="privacy-text">
+                    Siempre que el sitio web y la información y los servicios en el sitio se proporcionen de forma gratuita, no seremos responsables de ninguna pérdida o daño de cualquier naturaleza.
+                </p>
+            </div>
+        </section>
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // [MEJORA] Smooth scrolling
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // [MEJORA] Fecha dinámica
+            const dateElement = document.getElementById('current-date');
+            if(dateElement) {
+                const today = new Date();
+                const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                dateElement.textContent = today.toLocaleDateString('es-MX', options);
+            }
+
+            // [CORRECCIÓN] Efecto Parallax con sintaxis correcta
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.privacy-hero');
+                
+                if (hero) {
+                    const heroHeight = hero.offsetHeight;
+                    if (scrolled < heroHeight) {
+                        hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
