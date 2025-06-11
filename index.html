@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia - Moto Morini</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Sección Historia Hero */
+        .history-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            background-image: url('images/antigua.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .history-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 80%, rgba(0,0,0,1) 100%);
+        }
+        
+        .history-hero h1 {
+            position: relative;
+            font-family: 'Oswald', sans-serif;
+            font-size: 120px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-left: 80px;
+            z-index: 1;
+        }
+        
+        /* Timeline Container */
+        .timeline-container {
+            background-color: #000;
+            padding: 0 0 80px 0;
+            margin-top: -2px;
+            position: relative;
+        }
+        
+        /* Timeline Item */
+        .timeline-item {
+            position: relative;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+            background-color: #000;
+        }
+        
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Year Section */
+        .year-section {
+            position: relative;
+            padding: 100px 20px 80px 20px;
+            margin-bottom: 0;
+            text-align: center;
+            overflow: visible;
+            width: 100%;
+        }
+        
+        .year {
+            font-family: 'Oswald', sans-serif;
+            font-size: 450px;
+            font-weight: 300;
+            line-height: 0.85;
+            margin-bottom: 0;
+            margin-left: 0;
+            letter-spacing: -20px;
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(to bottom, #c8192e 0%, #000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-stretch: condensed;
+            transform: scaleX(0.75);
+            transform-origin: center;
+            padding: 0 20px;
+        }
+        
+        .year-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #fff;
+            margin-top: -20px;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+        
+        .year-description {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #ccc;
+            max-width: 900px;
+            text-align: left;
+            font-weight: 500;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Image Layouts */
+        .image-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        /* Single Image Layout */
+        .single-image {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+        }
+        
+        .single-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        
+        /* Double Image Layout - Staggered Effect */
+        .double-image {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 80px 40px;
+            gap: 0;
+            background-color: #000;
+        }
+        
+        .double-image .image-wrapper {
+            flex: 1;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .double-image .image-wrapper:first-child {
+            transform: translateY(-40px);
+        }
+        
+        .double-image .image-wrapper:last-child {
+            transform: translateY(40px);
+        }
+        
+        .double-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: brightness(0.9);
+            transition: filter 0.3s ease;
+        }
+        
+        .double-image img:hover {
+            filter: brightness(1.1);
+        }
+        
+        /* Image with text overlay */
+        .image-overlay {
+            position: relative;
+            width: 100%;
+            height: 80vh;
+            overflow: hidden;
+            background-color: #000;
+        }
+        
+        .image-overlay img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            filter: brightness(0.6);
+        }
+        
+        .overlay-content {
+            position: absolute;
+            bottom: 60px;
+            left: 80px;
+            z-index: 2;
+        }
+        
+        .overlay-content .year {
+            color: #c8192e;
+            margin-bottom: 0;
+            margin-left: 0;
+            font-size: 450px;
+            font-weight: 300;
+            letter-spacing: -20px;
+            line-height: 0.85;
+            background: linear-gradient(to bottom, #c8192e 0%, #000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-stretch: condensed;
+            transform: scaleX(0.75);
+            transform-origin: center;
+            padding: 0 20px;
+        }
+        
+        .overlay-content .year-title {
+            max-width: 600px;
+            margin-top: -20px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .history-hero h1 {
+                font-size: 80px;
+                margin-left: 60px;
+            }
+            
+            .year {
+                font-size: 360px;
+                letter-spacing: -15px;
+            }
+            
+            .year-title {
+                font-size: 36px;
+            }
+            
+            .year-description {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .history-hero h1 {
+                font-size: 60px;
+                margin-left: 30px;
+            }
+            
+            .year {
+                font-size: 250px;
+                letter-spacing: -10px;
+                padding: 0 10px;
+            }
+            
+            .year-title {
+                font-size: 28px;
+                margin-top: -15px;
+            }
+            
+            .year-description {
+                font-size: 12px;
+                padding: 0 20px;
+            }
+            
+            .year-section {
+                padding: 70px 10px 60px 10px;
+            }
+            
+            /* Single Image Mobile */
+            .single-image {
+                height: 60vh;
+                min-height: 400px;
+            }
+            
+            .single-image img {
+                object-fit: contain;
+            }
+            
+            /* Double Image Mobile - Mantener efecto escalonado */
+                .double-image {
+                display: flex;
+                flex-direction: row;
+                padding: 40px 10px;
+                position: relative;
+                overflow-x: hidden;
+                align-items: center;
+            }
+            
+            .double-image .image-wrapper {
+                flex: 1;
+                max-width: 55%;
+                position: relative;
+            }
+            
+            .double-image .image-wrapper:first-child {
+                transform: translateY(-20px);
+                /* Reducimos el solapamiento al mínimo */
+                margin-right: -4%; 
+                z-index: 1;
+            }
+            
+            .double-image .image-wrapper:last-child {
+                /* Aumentamos MUCHO el valor para bajar la imagen superpuesta */
+                transform: translateY(60px);
+                /* Reducimos el solapamiento al mínimo */
+                margin-left: -4%;
+                z-index: 2;
+            }
+
+            .double-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+                /* ELIMINADO: Las propiedades 'border' y 'box-shadow' */
+                filter: brightness(0.9);
+                transition: filter 0.3s ease;
+            }
+    
+            /* Image Overlay Mobile */
+            .image-overlay {
+            height: 60vh;
+            min-height: 400px;
+            }
+            
+            .overlay-content {
+                left: 30px;
+                bottom: 40px;
+            }
+            
+            .overlay-content .year {
+                font-size: 250px;
+                letter-spacing: -10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .history-hero h1 {
+                font-size: 48px;
+                margin-left: 20px;
+            }
+            
+            .history-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .year {
+                font-size: 180px;
+                letter-spacing: -8px;
+                padding: 0 5px;
+            }
+            
+            .year-title {
+                font-size: 24px;
+                margin-top: -10px;
+            }
+            
+            .year-description {
+                font-size: 11px;
+                line-height: 1.3;
+            }
+            
+            .year-section {
+                padding: 50px 5px 40px 5px;
+            }
+            
+            /* Single Image Mobile Small */
+            .single-image {
+                height: 50vh;
+                min-height: 300px;
+            }
+            
+            /* Double Image Mobile Small - Mantener efecto escalonado */
+            .double-image {
+                display: flex;
+                flex-direction: row;
+                padding: 30px 5px;
+                position: relative;
+                overflow-x: hidden;
+                align-items: center;
+            }
+            
+            .double-image .image-wrapper {
+                flex: 1;
+                max-width: 60%; 
+            }
+            
+            .double-image .image-wrapper:first-child {
+                transform: translateY(-15px);
+                margin-right: -6%; 
+                z-index: 1; /* Es buena práctica mantenerlo explícito */
+            }
+            
+            .double-image .image-wrapper:last-child {
+                /* Aumentamos el desplazamiento para bajar la imagen */
+                transform: translateY(45px); 
+                margin-left: -6%;
+                z-index: 2; /* Es buena práctica mantenerlo explícito */
+            }
+            
+            .double-image img {
+                width: 100%;
+                height: auto;
+                display: block;
+                /* ELIMINADO: Las propiedades 'border' y 'box-shadow' */
+            }
+            
+            /* Image Overlay Mobile Small */
+            .image-overlay {
+                height: 50vh;
+                min-height: 300px;
+            }
+                   
+            .overlay-content {
+                left: 20px;
+                bottom: 30px;
+            }
+            
+            .overlay-content .year {
+                font-size: 160px;
+            }
+            
+            .overlay-content .year-title {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="history-hero">
+        <h1>Historia</h1>
+    </section>
+    
+    <!-- Timeline Container -->
+    <div class="timeline-container" id="timeline">
+        <!-- Timeline items will be dynamically generated here -->
+    </div>
+    
+    <script>
+        // Timeline Data
+        const timelineData = [
+            {
+                year: "1937",
+                title: "El principio de la aventura",
+                description: "Tras casi 15 años de colaboración con Mario Mazzetti y MM, Alfonso Morini se estableció por su cuenta en septiembre de 1937. Abrió así una pequeña empresa en Via Malvasia, en Bolonia, donde en enero de 1938 comenzó a fabricar triciclos motorizados de 350, 500 y 600 cc. Una elección dictada por las condiciones de la época, ya que los vehículos de tres ruedas de origen motociclista gozan de exenciones fiscales, no requieren permiso de conducir y cuestan un tercio de los camiones. La fiabilidad y el buen rendimiento empiezan a dar a conocer la joven empresa boloñesa. Para la parte técnica, contrató a Dante Lambertini, Gino Marchesini y Dolcino Veronesi, que serían figuras clave cuando la empresa se dedicó al motociclismo después de la guerra, abandonando los triciclos motorizados.",
+                images: ["images/moto1.webp"],
+                layout: "single"
+            },
+            {
+                year: "1946",
+                title: "La primera motocicleta",
+                description: "A pesar de que los bombardeos destruyeron la fábrica durante la guerra, Alfonso Morini no se desanimó y empezó de cero. Identificó el 125 de dos tiempos como el vehículo ideal para las necesidades de la posguerra. La primera Moto Morini apareció en la primavera de 1946 y se inspiró en la mejor 125 de la época, la DKW RT. La producción comenzó en la nueva fábrica de Via Ludovico Berti, también en Bolonia. La 125 fue la primera moto ligera que se fabricó en la Italia liberada del fascismo y cuando se presentó en el Salón de Milán de 1946 fue calificada por Motociclismo como «el éxito del año».",
+                images: ["images/moto2.webp", "images/moto3.webp"],
+                layout: "double"
+            },
+            {
+                year: "1947",
+                title: "Turismo Sport",
+                description: "Al modelo turístico se le sumó la versión deportiva. La potencia aumentó de 4,5 CV a 5,7 CV, la velocidad de 75 a 80 km/h. El primer 125 superó a sus rivales en calidad, fiabilidad y confort (en su debut ya estaba equipado con suspensión trasera). La producción terminó en 1954. Con la 125 de dos tiempos empezaron a competir y consiguieron sus primeras victorias. Umberto Mascetti comenzó su brillante carrera con esta pequeña moto, que le regaló sus primeras satisfacciones, especialmente en 1948, cuando ganó varias carreras en el campeonato italiano de segunda categoría. La versión de competición tenía una caja de cambios de cuatro velocidades en lugar de tres, y desarrollaba 8/9 CV. La velocidad aproximada rondaba los 120 km/h.",
+                images: ["images/persona1.webp", "images/persona2.webp"],
+                layout: "double"
+            },
+            {
+                year: "1949",
+                title: "Ganadora de GP",
+                description: "Al darse cuenta de la supremacía de los motores de 4 tiempos, Alfonso Morini dio luz verde al proyecto de una nueva moto de GP, la 125 monoplaza con transmisión por cadena. Con una compresión de 9:1 y un carburador de 28 mm, ofrecía 12 CV a 10.000 rpm. El peso de la moto era de 80 kg. Además de varios títulos nacionales de primera categoría, fue la primera Moto Morini en ganar un GP, en 1951 en Monza con Emilio Mendogni, superando a las MV y Mondial de doble eje. En el pico de desarrollo alcanzaba los 16 CV.",
+                images: ["images/moto4.webp"],
+                layout: "single"
+            },
+            {
+                year: "1953",
+                title: "175 Settebello",
+                description: "Debutó la 175 Settebello, tope de gama del fabricante boloñés, codiciada por quienes también querían participar en carreras, especialmente de larga distancia. Este modelo, que se desarrolló cada vez más para las carreras, alcanzó su punto álgido en 1962 con la versión con «Varillas Cortas» con 22 CV a 10 500 rpm. En 1954, se construyó la fabulosa 175 Settebello, destinada a la Milán-Taranto y al Motogiro de Italia. Monocilíndrico con sistema de distribución monoeje dividido capaz de desarrollar 22 CV a 9000 rpm. Tenía un bastidor muy eficaz -chasis de doble cuna abierta, suspensión hidráulica superior- y resultó ganadora en las dos carreras clásicas de larga distancia. Producida en unos 15 ejemplares, también se desarrolló como una 250 cc.",
+                images: ["images/fabrica.webp"],
+                layout: "single"
+            },
+            {
+                year: "1955",
+                title: "La nueva fábrica en Bolonia",
+                description: "El aumento de la producción requería una nueva fábrica, por lo que Moto Morini se trasladó a Via Bergami 7, también en Bolonia, por supuesto.",
+                images: ["images/moto5.webp"],
+                layout: "single"
+            },
+            {
+                year: "1957",
+                title: "El nuevo proyecto para una GP 250cc",
+                description: "Alfonso Morini decidió que había llegado el momento de participar de manera continuada en el Campeonato de Mundo de Velocidad, por lo que Nerio Biavati, antigua mano derecha del técnico Alfonso Drusiani en el departamento de carreras de Mondial, desarrolló el nuevo diseño de una moto GP de 250 cc. Entregada a Mendogni, ganó la Coppa Shell en Imola en 1959, pero posteriormente no pudo contrarrestar a las MV. La desaparición de la 125 de dos tiempos obligó a Moto Morini a cubrir el hueco en el sector más popular del mercado. Descartada la idea de una reducida 175 de un solo cilindro, se optó por un nuevo diseño más moderno y racional, reduciendo también el número de componentes y limitando así los costes de producción. Así nació el Sbarazzino 100 -una cilindrada entonces todavía en boga- que, dos años después, serviría de base para el nacimiento del Corsaro 125.",
+                images: ["images/moto6.webp"],
+                layout: "single"
+            },
+            {
+                year: "1964",
+                title: "Un gran piloto: Angelo Bergamonti",
+                description: "Otro gran piloto que ha vinculado su nombre a Moto Morini es Angelo Bergamonti (18 de marzo de 1939 - 4 de abril de 1971). Es un admirador de Provini, con quien comparte muchas afinidades: la pasión y el respeto por la mecánica, el temperamento y la búsqueda del estilo de conducción. Debutó en 1957 entre los cadetes con una Settebello 175 y, tras un paréntesis de unos años debido también al matrimonio, retomó en 1964 como junior, de nuevo con la Morini 175 que preparó en su taller de Gussola. En 1966 fue senior, corriendo con la Corsaro 125 y con la gloriosa 250 bicilíndrica antes Provini dio la victoria a Moto Morini en el campeonato italiano de 1967.",
+                images: ["images/moto7.webp", "images/moto8.webp"],
+                layout: "double"
+            },
+            {
+                year: "1965",
+                title: "Crecimiento en los EE. UU.",
+                description: "Comenzaron a exportar a Estados Unidos a través del importador John Berti. Nacen modelos con especificaciones diferentes a los que se venden en Italia y los nombres también cambian: por ejemplo, el Corsarino se convierte en Pirate y Twister, el Corsaro, también dependiendo de la versión, se llama Thunder Chief, Jaguar, Hurricane.",
+                images: ["images/moto9.webp", "images/moto10.webp"],
+                layout: "double"
+            },
+            {
+                year: "1975",
+                title: "3 ½ el número mágico",
+                description: "A principios de año, la Corsaro fue sustituida por la 125 H con un motor derivado en gran medida del 3 1⁄2. Es la más moderna de los 4 tiempos contemporáneos, y cuenta con una serie de características únicas, desde el encendido electrónico hasta una caja de cambios de 6 velocidades. También se beneficia inmediatamente del freno de disco delantero de 260 mm, el mismo que el 3 1⁄2. Con 13,75 CV a 9000 rpm puede alcanzar los 125 km/h. La 125 se dejó de fabricar en 1985, dejando que la KJ 125 de enduro mantuviera la bandera de Morini en alto entre las motos para jóvenes de 16 años.",
+                images: ["images/moto11.webp"],
+                layout: "single"
+            },
+            {
+                year: "1977",
+                title: "La nueva 500",
+                description: "Desde 1975, Morini trabaja en la nueva moto de carretera de 500cc, presentada en su versión definitiva en la feria de Milán de 1977. El tamaño del motor aumenta a 478.5 cc (69x64 mm), la potencia a 43 CV a 7.500 rpm y la velocidad a 175 km/h. Un año después, trabajando solo en su apariencia externa, se crea la versión deportiva. En 1981, los motores se suministran con un cambio de marchas de seis velocidades. En 1978, debuta la excelente bicilíndrica de 250 cc (59x43,8 mm = 239.5 cc) con 25 CV a 9.000 rpm y una velocidad de 140 km/h, que se vende bien, especialmente en el extranjero. A continuación, la gama de 1977, que también incluye la 250 monocilíndrica de 18.5 CV.",
+                images: ["images/moto12.webp"],
+                layout: "single"
+            },
+            {
+                images: ["images/moto13.webp", "images/moto14.webp"],
+                layout: "double-only"
+            },
+            {
+                year: "2005",
+                title: "El año del relanzamiento",
+                description: "Es el año del relanzamiento. Las nuevas motos, Corsaro 1200 (1187 cc y 140 CV) y 9 1/2 (1187 cc, 105 CV) son un proyecto innovador de Lambertini, mientras que el diseño es de Luciano Marabese. El nuevo motor es un bicilíndrico en V a 87º, de 4 válvulas, con inyección electrónica de combustible y una caja de cambios de 6 velocidades. Chasis de tubos tipo celosía.",
+                images: ["images/moto15.webp", "images/moto16.webp"],
+                layout: "double"
+            },
+            {
+                year: "2007",
+                title: "Nuevos modelos",
+                description: "Además de la Corsaro Veloce 1200, equipada con soluciones de chasis más sofisticadas, debutan la Scrambler 1200 y la maxi-enduro Granpasso 1200. La familia Morini tiene ahora el control total de la empresa.",
+                images: ["images/moto17.webp", "images/moto18.webp"],
+                layout: "double"
+            },
+            {
+                year: "2011",
+                title: "El plan de desarrollo",
+                description: "Moto Morini es adquirida por dos empresarios: Sandro Capotosti y Ruggeromassimo Jannuzzelli y en el año 2013 se traslada a la provincia de Pavía, a Trivolzio. La propiedad pasa íntegramente a la familia Iannuzzelli. Empieza así un camino de desarrollo de las motos para su adecuación a la normativa Euro 4 al que le siguió el de la creación de nuevos modelos, dando como resultado la atrevida Corsaro ZZ, la Corsaro ZT y la fascinante Milano.",
+                images: ["images/agencia.webp"],
+                layout: "single"
+            },
+            {
+                year: "2018",
+                title: "Un nuevo comienzo",
+                description: "En octubre de 2018, la empresa cambió de manos y pasó a formar parte de Zhongneng Vehicle Group, que pretende consolidar y reforzar la prestigiosa posición de la empresa Golden Eagle introduciendo importantes inversiones que implican tanto modelos actuales como nuevos, incluso de diferentes cilindradas, con el objetivo de ampliar la gama Morini y aumentar la presencia en el mercado.",
+                images: ["images/moto19.webp"],
+                layout: "single"
+            },
+            {
+                year: "2021",
+                title: "Una nueva era",
+                description: "Moto Morini lanza al mercado la tan esperada X-CAPE de 650cc, que de inmediato alcanza un gran éxito, escalando posiciones en las listas de ventas en tan solo unos meses y devolviendo el nombre de la marca a la memoria de todos. El año siguiente, comenzó la producción de la SEIEMMEZZO."
+            }
+        ];
+        
+        // Timeline Item Component
+        class TimelineItem {
+            constructor(data) {
+                this.year = data.year;
+                this.title = data.title;
+                this.description = data.description;
+                this.images = data.images;
+                this.layout = data.layout;
+            }
+            
+            render() {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                if (this.year) {
+                    item.setAttribute('data-year', this.year);
+                }
+                
+                // Handle special case for double-only layout
+                if (this.layout === 'double-only') {
+                    const imageSection = this.createImageSection();
+                    item.appendChild(imageSection);
+                    return item;
+                }
+                
+                // Create year section if data exists
+                const yearSection = this.year ? this.createYearSection() : null;
+                
+                // Create image section if images exist
+                const imageSection = this.images ? this.createImageSection() : null;
+                
+                // Append sections based on layout
+                if (this.layout === 'overlay' && imageSection) {
+                    item.appendChild(imageSection);
+                } else {
+                    if (yearSection) item.appendChild(yearSection);
+                    if (imageSection) item.appendChild(imageSection);
+                }
+                
+                return item;
+            }
+            
+            createYearSection() {
+                const yearSection = document.createElement('div');
+                yearSection.className = 'year-section';
+                
+                yearSection.innerHTML = `
+                    <div class="year">${this.year}</div>
+                    <h2 class="year-title">${this.title}</h2>
+                    <p class="year-description">${this.description}</p>
+                `;
+                
+                return yearSection;
+            }
+            
+            createImageSection() {
+                const imageContainer = document.createElement('div');
+                imageContainer.className = 'image-container';
+                
+                switch(this.layout) {
+                    case 'single':
+                        imageContainer.innerHTML = `
+                            <div class="single-image">
+                                <img src="${this.images[0]}" alt="${this.title}" loading="lazy">
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'double':
+                    case 'double-only':
+                        imageContainer.innerHTML = `
+                            <div class="double-image">
+                                <div class="image-wrapper">
+                                    <img src="${this.images[0]}" alt="${this.title ? this.title + ' - Imagen 1' : 'Imagen 1'}" loading="lazy">
+                                </div>
+                                <div class="image-wrapper">
+                                    <img src="${this.images[1]}" alt="${this.title ? this.title + ' - Imagen 2' : 'Imagen 2'}" loading="lazy">
+                                </div>
+                            </div>
+                        `;
+                        break;
+                        
+                    case 'overlay':
+                        imageContainer.innerHTML = `
+                            <div class="image-overlay">
+                                <img src="${this.images[0]}" alt="${this.title}" loading="lazy">
+                                <div class="overlay-content">
+                                    <div class="year">${this.year}</div>
+                                    <h2 class="year-title">${this.title}</h2>
+                                </div>
+                            </div>
+                        `;
+                        break;
+                }
+                
+                return imageContainer;
+            }
+        }
+        
+        // Timeline Manager
+        class Timeline {
+            constructor(containerId, data) {
+                this.container = document.getElementById(containerId);
+                this.data = data;
+                this.items = [];
+                this.init();
+            }
+            
+            init() {
+                this.render();
+                this.setupScrollAnimation();
+            }
+            
+            render() {
+                this.data.forEach(itemData => {
+                    const timelineItem = new TimelineItem(itemData);
+                    const element = timelineItem.render();
+                    this.items.push(element);
+                    this.container.appendChild(element);
+                });
+            }
+            
+            setupScrollAnimation() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, observerOptions);
+                
+                this.items.forEach(item => {
+                    observer.observe(item);
+                });
+            }
+        }
+        
+        // Initialize Timeline
+        document.addEventListener('DOMContentLoaded', () => {
+            const timeline = new Timeline('timeline', timelineData);
+            
+            // Smooth scrolling for better UX
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Parallax effect for hero image
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.history-hero');
+                const heroHeight = hero.offsetHeight;
+                if (hero && scrolled < heroHeight) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
