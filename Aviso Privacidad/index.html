@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aviso de Privacidad - Moto Morini</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Roboto:wght@300;400;500&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        /* Privacy Hero Section */
+        .privacy-hero {
+            position: relative;
+            width: 100%;
+            height: 70vh;
+            min-height: 500px;
+            background-image: url('background.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        
+        .privacy-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 80%, rgba(0,0,0,1) 100%);
+        }
+        
+        .privacy-hero h1 {
+            position: relative;
+            font-family: 'Oswald', sans-serif;
+            font-size: 120px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+            color: #fff;
+            margin-left: 80px;
+            z-index: 1;
+        }
+        
+        /* Privacy Container */
+        .privacy-container {
+            background-color: #000;
+            padding: 0 0 80px 0;
+            margin-top: -2px;
+            position: relative;
+        }
+        
+        /* Privacy Section */
+        .privacy-section {
+            position: relative;
+            padding: 80px 20px 80px 20px;
+            text-align: center;
+            margin-bottom: 0;
+        }
+        
+        /* Section with dark background */
+        .privacy-section.dark-bg {
+            background-color: #000;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            padding: 80px 20px;
+            margin-bottom: 0;
+        }
+        
+        .privacy-section.dark-bg .section-title {
+            font-size: 56px;
+            line-height: 1.2;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+        
+        .privacy-section.dark-bg .privacy-text {
+            text-align: justify;
+            max-width: 900px;
+            margin: 40px auto 0;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        /* Section Title */
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 42px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #fff;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+            text-align: center;
+        }
+        
+        /* Content Container */
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+        
+        /* Main Title */
+        .main-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            font-weight: 500;
+            text-transform: uppercase;
+            color: #c8192e;
+            margin-bottom: 30px;
+            text-align: left;
+            letter-spacing: 1px;
+        }
+        
+        /* Paragraph Text */
+        .privacy-text {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #ccc;
+            text-align: justify;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+        
+        /* List Items */
+        .privacy-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+        
+        .privacy-list li {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+            text-align: justify;
+            margin-bottom: 8px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .privacy-list li::before {
+            content: '•';
+            color: #c8192e;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Section Divider */
+        .section-divider {
+            width: 60%;
+            max-width: 800px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: 60px auto 0;
+            position: relative;
+        }
+        
+        /* Table Styles */
+        .privacy-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background-color: rgba(255, 255, 255, 0.02);
+        }
+        
+        .privacy-table th,
+        .privacy-table td {
+            padding: 20px;
+            text-align: left;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .privacy-table th {
+            background-color: rgba(200, 25, 46, 0.1);
+            font-family: 'Oswald', sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+        }
+        
+        .privacy-table td {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #ccc;
+        }
+        
+        /* Accent Line */
+        .accent-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, #c8192e 0%, transparent 100%);
+            margin: 60px 0;
+        }
+        
+        /* Contact Box */
+        .contact-box {
+            background-color: rgba(200, 25, 46, 0.05);
+            border: 1px solid rgba(200, 25, 46, 0.3);
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .contact-box p {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .contact-box a {
+            color: #c8192e;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-box a:hover {
+            color: #fff;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .privacy-hero h1 {
+                font-size: 80px;
+                margin-left: 60px;
+            }
+            
+            .section-title {
+                font-size: 36px;
+            }
+            
+            .main-title {
+                font-size: 30px;
+            }
+            
+            .privacy-section.dark-bg .section-title {
+                font-size: 42px;
+            }
+            
+            .section-divider {
+                width: 70%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .privacy-hero h1 {
+                font-size: 60px;
+                margin-left: 30px;
+            }
+            
+            .privacy-hero {
+                height: 50vh;
+                min-height: 350px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .main-title {
+                font-size: 24px;
+            }
+            
+            .content-wrapper {
+                padding: 0 20px;
+            }
+            
+            .privacy-section {
+                padding: 60px 10px 60px 10px;
+                margin-bottom: 0;
+            }
+            
+            .privacy-section.dark-bg {
+                padding: 80px 20px;
+            }
+            
+            .privacy-section.dark-bg .section-title {
+                font-size: 32px;
+            }
+            
+            .privacy-table {
+                font-size: 12px;
+            }
+            
+            .privacy-table th,
+            .privacy-table td {
+                padding: 15px 10px;
+            }
+            
+            .privacy-table th {
+                font-size: 14px;
+            }
+            
+            .section-divider {
+                width: 80%;
+                margin: 40px auto 0;
+            }
+            
+            .contact-box {
+                margin: 30px 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .privacy-hero h1 {
+                font-size: 48px;
+                margin-left: 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+                line-height: 1.3;
+            }
+            
+            .main-title {
+                font-size: 20px;
+            }
+            
+            .privacy-text,
+            .privacy-list li {
+                font-size: 12px;
+                line-height: 1.6;
+            }
+            
+            .privacy-section {
+                padding: 40px 5px 40px 5px;
+                margin-bottom: 0;
+            }
+            
+            .privacy-section.dark-bg {
+                padding: 60px 15px;
+            }
+            
+            .privacy-section.dark-bg .section-title {
+                font-size: 24px;
+                padding: 0 10px;
+            }
+            
+            .privacy-section.dark-bg .privacy-text {
+                font-size: 12px;
+            }
+            
+            .content-wrapper {
+                padding: 0 15px;
+            }
+            
+            .contact-box {
+                padding: 20px;
+                margin: 20px 0;
+            }
+            
+            .contact-box p {
+                font-size: 14px;
+            }
+            
+            .section-divider {
+                width: 90%;
+                margin: 30px auto 0;
+                height: 1px;
+            }
+            
+            /* List items mobile */
+            .privacy-list li {
+                padding-left: 20px;
+                margin-bottom: 10px;
+            }
+            
+            /* Accent line mobile */
+            .accent-line {
+                margin: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="privacy-hero">
+        <h1>Privacidad</h1>
+    </section>
+    
+    <!-- Privacy Container -->
+    <div class="privacy-container">
+        <!-- Introduction Section -->
+        <section class="privacy-section">
+            <div class="content-wrapper">
+                <h2 class="main-title">DECLARACIÓN DE PRIVACIDAD</h2>
+                <p class="privacy-text">
+                    Al completar el Formulario de contacto y/o adquirir un producto mediante este sitio web, vamos a recopilar y tratar tu información personal. Por ello, te proporcionamos la siguiente información para que tengas conocimiento acerca de cómo vamos a procesar tus datos y los derechos que tenés para controlarlos.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Responsible Section with Dark Background -->
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">¿QUIÉN ES EL RESPONSABLE DEL TRATAMIENTO DE LA INFORMACIÓN PERSONAL?</h2>
+                <p class="privacy-text">
+                    Los datos se registran en una base de datos propiedad de KAWASAKI DE MÉXICO, con domicilio en Pino Suárez Nte 750, Monterrey, Nuevo León.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Data Collection Section with Dark Background -->
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">¿QUÉ INFORMACIÓN RECOLECTAMOS Y TRATAMOS?</h2>
+                <p class="privacy-text">
+                    Los datos personales que recopilamos para los propósitos que se explican en esta Declaración son:
+                </p>
+                <ul class="privacy-list">
+                    <li>Datos identificatorios, de contacto y facturación (como nombre y apellido, correo electrónico, número de documento, identificación tributaria, domicilio)</li>
+                </ul>
+                <p class="privacy-text">
+                    Queremos que sepas que no tienes la obligación de proporcionarnos la información personal detallada, aunque la negativa a proporcionarlos o la inexactitud de los mismos impedirá que proporcionemos los servicios o productos ofrecidos en este sitio. La inexactitud o falsedad de los datos personales que proporciones podría causar daños a tus derechos o intereses, los nuestros o de terceros.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Data Usage Section -->
+        <section class="privacy-section">
+            <div class="content-wrapper">
+                <h2 class="section-title">¿QUÉ HACEMOS CON LA INFORMACIÓN PERSONAL?</h2>
+                <p class="privacy-text">
+                    Tus datos personales detallados anteriormente se recopilan y procesan con las siguientes finalidades:
+                </p>
+                <ul class="privacy-list">
+                    <li>Procesamiento de compras y facturación.</li>
+                    <li>Gestión de consultas.</li>
+                    <li>Publicidad, ofertas y/o promociones.</li>
+                </ul>
+                <p class="privacy-text">
+                    La utilización de tus datos para cualquier otra finalidad que no sea compatible con las detalladas, te será comunicada antes de que procedamos a su tratamiento.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Data Sharing Section with Dark Background -->
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">¿CÓMO COMPARTIMOS LA INFORMACIÓN PERSONAL?</h2>
+                <p class="privacy-text">
+                    Nos comprometemos a no vender, difundir, transferir o distribuir de ningún otro modo tus datos personales a terceros, excepto en los casos dispuestos en la presente Declaración de Privacidad.
+                </p>
+                <p class="privacy-text">
+                    En este sentido, te informamos que el proveedor de esta plataforma y tecnología de este sitio web, actuará como tercero encargado del tratamiento y se compromete a tratarlos de conformidad con la presente Declaración de Privacidad. Entre nosotros y el proveedor procesaremos tus datos para brindarte los servicios o productos que adquieras mediante el sitio web.
+                </p>
+                <p class="privacy-text">
+                    También, los Datos Personales se pueden transferir a otros terceros que actúen en nuestro nombre para que los procesen de conformidad con los fines para los que se recopilaron originalmente o pueden procesarse de otro modo legal, como prestación de servicios (como pagos o logística), evaluación de la utilidad del sitio web, marketing, gestión de datos o asistencia técnica. Estos terceros han suscrito un contrato con nosotros para utilizar exclusivamente los datos personales para los fines acordados y no vender ni divulgar tus datos personales a otros terceros, salvo que lo requiera la legislación, lo permitamos nosotros o se indique en esta Declaración de Privacidad.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Data Retention Section -->
+        <section class="privacy-section">
+            <div class="content-wrapper">
+                <h2 class="section-title">¿POR CUÁNTO TIEMPO VAMOS A ALMACENAR LA INFORMACIÓN PERSONAL?</h2>
+                <p class="privacy-text">
+                    Solo almacenaremos tus datos personales durante el tiempo necesario para cumplir con el propósito para el que se han recopilado o para cumplir con requisitos reglamentarios o legales.
+                </p>
+                <p class="privacy-text">
+                    Una vez concluido el lapso, los datos serán eliminados o anonimizados de manera tal que no puedas ser individualizado.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Rights Section with Dark Background -->
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">¿CÓMO PUEDES EJERCER TUS DERECHOS PARA CONTROLAR TU INFORMACIÓN PERSONAL?</h2>
+                <p class="privacy-text">
+                    La normativa aplicable te confiere ciertos derechos sobre tu Información Personal, como por ejemplo:
+                </p>
+                <ul class="privacy-list">
+                    <li>La información sobre el tratamiento de tus datos</li>
+                    <li>El acceso a tus datos recopilados</li>
+                    <li>La "anonimización", bloqueo o eliminación de tus datos</li>
+                    <li>La revocación del consentimiento que previamente nos concediste</li>
+                    <li>La corrección de tus datos cuando sean incompletos, inexactos o desactualizados</li>
+                    <li>La portabilidad de tus datos personales a otro proveedor de servicio o producto</li>
+                </ul>
+                
+                <div class="contact-box">
+                    <p>Podrás hacer cualquier consulta, reclamo y/o petición relativa a tu Información Personal en:</p>
+                    <a href="mailto:contacto@motomorini.com.mx">contacto@motomorini.com.mx</a>
+                </div>
+                
+                <p class="privacy-text">
+                    En determinados casos, mantendremos en nuestros archivos tus datos personales que nos hayas pedido que suprimamos para cumplir con las finalidades descriptas en esta Declaración de Privacidad o cuando exista un deber contractual, legal o regulatoria de mantener tu información personal. Una vez cumplida tal finalidad o eliminado el deber contractual, legal o regulatoria, procederemos a suprimir tus datos personales.
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Privacy Changes Section -->
+        <section class="privacy-section">
+            <div class="content-wrapper">
+                <h2 class="section-title">CAMBIOS EN LA DECLARACIÓN DE PRIVACIDAD</h2>
+                <p class="privacy-text">
+                    Si realizamos cambios en la forma en que tratamos tus datos personales, se te comunicará de antemano a través de una notificación individual mediante nuestros canales de comunicación habituales (p. ej. por correo electrónico), así como también a través de nuestras páginas web o aplicaciones (a través de banners, mensajes emergentes u otros mecanismos de notificación).
+                </p>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+        
+        <!-- Cookies Section with Dark Background -->
+        <section class="privacy-section dark-bg">
+            <div class="content-wrapper">
+                <h2 class="section-title">COOKIES Y OTRAS TECNOLOGÍAS</h2>
+                <p class="privacy-text">
+                    Reconoces y aceptas expresamente que KAWASAKI DE MÉXICO podrá utilizar un sistema de seguimiento de conducta mediante la utilización de "cookies", "web beacons" y/u otras tecnologías similares de seguimiento.
+                </p>
+                <p class="privacy-text">
+                    Estas tecnologías se utilizan con el fin de conocer los intereses y el comportamiento de quienes visitan o son usuarios de nuestro sitio web y, de esa forma, darles un mejor servicio o proveerles información relacionada. También usamos la información obtenida a través de cookies para analizar las páginas navegadas por el visitante o usuario, las búsquedas realizadas, mejorar nuestras iniciativas comerciales y promocionales, mostrar publicidad o promociones, banners de interés, noticias sobre KAWASAKI DE MÉXICO, perfeccionar nuestra oferta de contenidos y artículos, personalizar dichos contenidos, presentación y servicios, así como promover y hacer cumplir las reglas y seguridad del sitio; también las utilizamos para para que el usuario no tenga que introducir su clave tan frecuentemente durante una sesión de navegación, también para contabilizar y corroborar las inscripciones, la actividad del usuario y otros conceptos para acuerdos comerciales, siempre teniendo como objetivo de la instalación de las cookies, el beneficio del usuario que la recibe, y las cuales no serán usadas con fines ajenos a KAWASAKI DE MÉXICO. Asimismo, almacenamos cookies para poder ofrecer una experiencia más interactiva en el sitio, basada en las acciones del usuario.
+                </p>
+                <p class="privacy-text">
+                    Sus datos personales obtenidos a través de estas tecnologías no serán transferidos a terceros de una manera diferente a las descritas en esta Declaración de Privacidad.
+                </p>
+                <p class="privacy-text">
+                    Adicionalmente, se pueden encontrar "cookies" u otros sistemas similares instalados por terceros en ciertas páginas de nuestros Sitios Web o utilizados por anunciantes ajenos a KAWASAKI DE MÉXICO. Esta Declaración de Privacidad cubren la utilización de "cookies" por KAWASAKI DE MÉXICO y no incluyen el uso de "cookies" instaladas por terceros.
+                </p>
+                <p class="privacy-text">
+                    Debes saber que la instalación, permanencia y existencia de las cookies en tu computadora o dispositivo depende de tu exclusiva voluntad y pueden ser eliminadas cuando usted así lo desees. Para saber cómo quitar las Cookies del sistema es necesario revisar la sección Ayuda (Help) del navegador.
+                </p>
+                <p class="privacy-text">
+                    En este sentido, puedes en cualquier momento eliminar las cookies almacenadas, configurar el navegador para que solicite aprobación antes de almacenar cookies o directamente evitar que se almacenen cookies. Este procedimiento se realiza de forma diferente en los distintos navegadores y es necesario realizarlo en cada navegador que utilices.
+                </p>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // Parallax effect for hero section only
+        document.addEventListener('DOMContentLoaded', () => {
+            // Smooth scrolling
+            document.documentElement.style.scrollBehavior = 'smooth';
+            
+            // Parallax effect for hero
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector('.privacy-hero');
+                const heroHeight = hero.offsetHeight;
+                if (hero && scrolled < heroHeight) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
